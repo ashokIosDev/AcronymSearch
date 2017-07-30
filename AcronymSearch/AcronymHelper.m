@@ -30,7 +30,7 @@
 
 + (void)showOKAlertWithError:(NSError *)error {
     [self showOKAlertWithTitle:@"Error" message:error.localizedDescription];
-    NSLog(@"%@", error.localizedDescription);
+   // NSLog(@"%@", error.localizedDescription);
 }
 
 + (UIViewController *)currentTopViewController

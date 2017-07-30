@@ -100,6 +100,9 @@
                             <constraint firstItem="DDU-ev-67P" firstAttribute="top" secondItem="s49-Jn-TlX" secondAttribute="bottom" id="ZaG-v1-VHr"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="DDU-ev-67P" id="lZJ-a9-nkL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qLU-ed-r4e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

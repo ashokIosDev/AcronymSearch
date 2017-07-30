@@ -18,6 +18,7 @@
 @property (nonatomic, strong) IBOutlet SearchField *searchBox;
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *longforms;
+@property (assign, nonatomic) BOOL isDataAvailable;
 
 @end
 
@@ -26,6 +27,8 @@
 - (void)viewDidLoad {
     [NetworkController instance];
     [super viewDidLoad];
+    self.isDataAvailable = true;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.title = @"Acronym Search";
     NSTextAttachment*   placeholderImageTextAttachment = [[NSTextAttachment alloc] init];
     placeholderImageTextAttachment.image = [UIImage imageNamed:@"Search_Img"];
@@ -69,10 +72,14 @@
                                if(((NSArray*)response).count > 0) {
                                    AcromineSearchResult *searchResult = [[AcromineSearchResult alloc] initWithDictionary:response[0]];
                                    weakSelf.longforms = [searchResult.results mutableCopy];
-                                   [weakSelf.tableView reloadData];
+                                   self.isDataAvailable = true;
+                                  
                                } else {
+                                   self.isDataAvailable = false;
+                                   
                                    [AcronymHelper showOKAlertWithTitle:@"Error" message:@"Acronym not found."];
                                }
+                               [weakSelf.tableView reloadData];
                            });
                        }
                        failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -103,6 +110,28 @@
 }
 
 #pragma mark - Table view data source
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    NSInteger numOfSections = 0;
+    if (self.isDataAvailable)
+    {
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        numOfSections                = 1;
+        self.tableView.backgroundView = nil;
+    }
+    else
+    {
+        UILabel *noDataLabel         = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, self.tableView.bounds.size.height)];
+        noDataLabel.text             = @"😟";
+        noDataLabel.font            = [UIFont fontWithName:@"Arial" size:100];
+        noDataLabel.textColor        = [UIColor blackColor];
+        noDataLabel.textAlignment    = NSTextAlignmentCenter;
+        self.tableView.backgroundView = noDataLabel;
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    }
+    
+    return numOfSections;
+
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.longforms.count;
