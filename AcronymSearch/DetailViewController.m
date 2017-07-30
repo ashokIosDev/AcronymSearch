@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"Show Details";
     // Do any additional setup after loading the view.
 }
 

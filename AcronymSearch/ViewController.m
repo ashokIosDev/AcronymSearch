@@ -26,6 +26,7 @@
 - (void)viewDidLoad {
     [NetworkController instance];
     [super viewDidLoad];
+    self.title = @"Acronym Search";
     NSTextAttachment*   placeholderImageTextAttachment = [[NSTextAttachment alloc] init];
     placeholderImageTextAttachment.image = [UIImage imageNamed:@"Search_Img"];
     
@@ -110,7 +111,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"defcell" forIndexPath:indexPath];
     //cell.label.text = self.longforms[indexPath.row][@"lf"];
-    cell.textLabel.text = [(LongFormObject *)[self.longforms objectAtIndex:indexPath.row] longform];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@%@",[[[(LongFormObject *)[self.longforms objectAtIndex:indexPath.row] longform] substringToIndex:1] uppercaseString],[[(LongFormObject *)[self.longforms objectAtIndex:indexPath.row] longform] substringFromIndex:1] ];
     return cell;
    // return
 }
