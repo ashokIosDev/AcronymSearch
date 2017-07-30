@@ -35,9 +35,7 @@
 
 - (void)initForView
 {
-   // dispatch_async(dispatch_get_main_queue(), ^{
-    //UIView *view = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] firstObject];
-    UIView *view = [[[NSBundle bundleForClass:[self class]] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] objectAtIndex:0];
+       UIView *view = [[[NSBundle bundleForClass:[self class]] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] objectAtIndex:0];
     view.frame = self.bounds;
     view.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview:view];
@@ -53,7 +51,6 @@
     // Default keyboard types
     self.searchTxtFld.autocorrectionType = UITextAutocorrectionTypeNo;
     self.searchTxtFld.returnKeyType = UIReturnKeyDone;
-       // });
 }
 
 - (void)onTapAction

@@ -7,11 +7,12 @@
 //
 
 #import "AcromineSearchResult.h"
+#import "LongFormObject.h"
 
 @interface AcromineSearchResult ()
 
 @property (nonatomic, strong) NSDictionary *data;
-
+@property (nonatomic, strong) NSDictionary *arryData;
 @end
 
 @implementation AcromineSearchResult
@@ -35,7 +36,32 @@
 }
 
 - (NSArray *)results {
-    return self.data[@"lfs"];
+
+    NSMutableArray *resultArray = [NSMutableArray array];
+    [self.data[@"lfs"] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSDictionary *longformDict = (NSDictionary *)obj;
+        NSString *lf = [longformDict valueForKey:@"lf"];
+        NSNumber *freq = [longformDict valueForKey:@"freq"];
+        NSNumber *since = [longformDict valueForKey:@"since"];
+        NSArray *vars = [longformDict valueForKey:@"vars"];
+        
+        LongFormObject *longform = [[LongFormObject alloc] initWithLongform:lf freq:freq since:since];
+        if(vars && [vars count] > 0){
+            NSMutableArray *variations = [NSMutableArray array];
+            [vars enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                NSDictionary *longformDict = (NSDictionary *)obj;
+                NSString *lf = [longformDict valueForKey:@"lf"];
+                NSNumber *freq = [longformDict valueForKey:@"freq"];
+                NSNumber *since = [longformDict valueForKey:@"since"];
+                LongFormObject *longForm = [[LongFormObject alloc] initWithLongform:lf freq:freq since:since];
+                [variations addObject:longForm];
+            }];
+            longform.variations = variations;
+        }
+        
+        [resultArray addObject:longform];
+    }];
+    return resultArray;//self.data[@"lfs"];
 }
 
 

@@ -21,6 +21,8 @@
 		F9115F881F2D5BAE00F6D52A /* SearchField.m in Sources */ = {isa = PBXBuildFile; fileRef = F9115F861F2D5BAE00F6D52A /* SearchField.m */; };
 		F9115F8E1F2D63CC00F6D52A /* AcromineSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = F9115F8D1F2D63CC00F6D52A /* AcromineSearchResult.m */; };
 		F9115F911F2D66A500F6D52A /* AcronymHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F9115F901F2D66A500F6D52A /* AcronymHelper.m */; };
+		F911B65F1F2E5363001B72BA /* LongFormObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F911B65E1F2E5363001B72BA /* LongFormObject.m */; };
+		F911B6621F2E71AA001B72BA /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F911B6611F2E71AA001B72BA /* DetailViewController.m */; };
 		F95BF47A1F2E16C400AC21CC /* SearchField.xib in Resources */ = {isa = PBXBuildFile; fileRef = F95BF4791F2E16C400AC21CC /* SearchField.xib */; };
 		F978DF151F2D6CD500F7818D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F978DF141F2D6CD500F7818D /* MBProgressHUD.m */; };
 		F978DF181F2D776500F7818D /* NetworkController.m in Sources */ = {isa = PBXBuildFile; fileRef = F978DF171F2D776500F7818D /* NetworkController.m */; };
@@ -75,6 +77,10 @@
 		F9115F8D1F2D63CC00F6D52A /* AcromineSearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AcromineSearchResult.m; sourceTree = "<group>"; };
 		F9115F8F1F2D66A500F6D52A /* AcronymHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AcronymHelper.h; sourceTree = "<group>"; };
 		F9115F901F2D66A500F6D52A /* AcronymHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AcronymHelper.m; sourceTree = "<group>"; };
+		F911B65D1F2E5363001B72BA /* LongFormObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LongFormObject.h; sourceTree = "<group>"; };
+		F911B65E1F2E5363001B72BA /* LongFormObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LongFormObject.m; sourceTree = "<group>"; };
+		F911B6601F2E71AA001B72BA /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		F911B6611F2E71AA001B72BA /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		F95BF4791F2E16C400AC21CC /* SearchField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchField.xib; sourceTree = "<group>"; };
 		F978DF131F2D6CD500F7818D /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		F978DF141F2D6CD500F7818D /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
@@ -160,24 +166,15 @@
 			children = (
 				F9115F521F2D5A5100F6D52A /* AppDelegate.h */,
 				F9115F531F2D5A5100F6D52A /* AppDelegate.m */,
-				F9115F551F2D5A5100F6D52A /* ViewController.h */,
-				F9115F561F2D5A5100F6D52A /* ViewController.m */,
-				F9115F8C1F2D63BC00F6D52A /* AcromineSearchResult.h */,
-				F9115F8D1F2D63CC00F6D52A /* AcromineSearchResult.m */,
-				F9115F851F2D5BAE00F6D52A /* SearchField.h */,
-				F9115F861F2D5BAE00F6D52A /* SearchField.m */,
-				F978DF131F2D6CD500F7818D /* MBProgressHUD.h */,
-				F978DF141F2D6CD500F7818D /* MBProgressHUD.m */,
-				F95BF4791F2E16C400AC21CC /* SearchField.xib */,
-				F9115F581F2D5A5100F6D52A /* Main.storyboard */,
+				F911B6651F2E7AD2001B72BA /* Models */,
+				F911B6631F2E7A3C001B72BA /* Controllers */,
+				F911B6671F2E7AFD001B72BA /* ThirdParty */,
+				F911B6641F2E7AB9001B72BA /* Views */,
 				F9115F5B1F2D5A5100F6D52A /* Assets.xcassets */,
 				F9115F5D1F2D5A5100F6D52A /* LaunchScreen.storyboard */,
 				F9115F601F2D5A5100F6D52A /* Info.plist */,
 				F9115F4F1F2D5A5100F6D52A /* Supporting Files */,
-				F9115F8F1F2D66A500F6D52A /* AcronymHelper.h */,
-				F9115F901F2D66A500F6D52A /* AcronymHelper.m */,
-				F978DF161F2D776500F7818D /* NetworkController.h */,
-				F978DF171F2D776500F7818D /* NetworkController.m */,
+				F911B6661F2E7AED001B72BA /* Helper */,
 			);
 			path = AcronymSearch;
 			sourceTree = "<group>";
@@ -206,6 +203,59 @@
 				F9115F761F2D5A5100F6D52A /* Info.plist */,
 			);
 			path = AcronymSearchUITests;
+			sourceTree = "<group>";
+		};
+		F911B6631F2E7A3C001B72BA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F9115F551F2D5A5100F6D52A /* ViewController.h */,
+				F9115F561F2D5A5100F6D52A /* ViewController.m */,
+				F9115F851F2D5BAE00F6D52A /* SearchField.h */,
+				F9115F861F2D5BAE00F6D52A /* SearchField.m */,
+				F911B6601F2E71AA001B72BA /* DetailViewController.h */,
+				F911B6611F2E71AA001B72BA /* DetailViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		F911B6641F2E7AB9001B72BA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F95BF4791F2E16C400AC21CC /* SearchField.xib */,
+				F9115F581F2D5A5100F6D52A /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		F911B6651F2E7AD2001B72BA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F9115F8C1F2D63BC00F6D52A /* AcromineSearchResult.h */,
+				F9115F8D1F2D63CC00F6D52A /* AcromineSearchResult.m */,
+				F911B65D1F2E5363001B72BA /* LongFormObject.h */,
+				F911B65E1F2E5363001B72BA /* LongFormObject.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		F911B6661F2E7AED001B72BA /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				F9115F8F1F2D66A500F6D52A /* AcronymHelper.h */,
+				F9115F901F2D66A500F6D52A /* AcronymHelper.m */,
+				F978DF161F2D776500F7818D /* NetworkController.h */,
+				F978DF171F2D776500F7818D /* NetworkController.m */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
+		F911B6671F2E7AFD001B72BA /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				F978DF131F2D6CD500F7818D /* MBProgressHUD.h */,
+				F978DF141F2D6CD500F7818D /* MBProgressHUD.m */,
+			);
+			name = ThirdParty;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -489,10 +539,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F911B65F1F2E5363001B72BA /* LongFormObject.m in Sources */,
 				F9115F571F2D5A5100F6D52A /* ViewController.m in Sources */,
 				F9115F541F2D5A5100F6D52A /* AppDelegate.m in Sources */,
 				F9115F881F2D5BAE00F6D52A /* SearchField.m in Sources */,
 				F9115F8E1F2D63CC00F6D52A /* AcromineSearchResult.m in Sources */,
+				F911B6621F2E71AA001B72BA /* DetailViewController.m in Sources */,
 				F978DF181F2D776500F7818D /* NetworkController.m in Sources */,
 				F9115F511F2D5A5100F6D52A /* main.m in Sources */,
 				F9115F911F2D66A500F6D52A /* AcronymHelper.m in Sources */,

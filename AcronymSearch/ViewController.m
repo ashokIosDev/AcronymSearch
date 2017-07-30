@@ -11,7 +11,8 @@
 #import "NetworkController.h"
 #import "AcronymHelper.h"
 #import "AcromineSearchResult.h"
-
+#import "LongFormObject.h"
+#import "DetailViewController.h"
 @interface ViewController ()
 
 @property (nonatomic, strong) IBOutlet SearchField *searchBox;
@@ -38,11 +39,11 @@
     
     // set as (attributed) placeholder
     self.searchBox.searchTxtFld.attributedPlaceholder = placeholderImageString;
-   // self.searchBox.searchTxtFld.placeholder = @"Enter Term to Look Up Here";
+   
     self.searchBox.searchTxtFld.returnKeyType = UIReturnKeySearch;
     self.searchBox.searchTxtFld.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.searchBox.searchTxtFld.delegate = self;
-   // [self.searchBox.searchBtn setTitle:@"Seach" forState:UIControlStateNormal];
+   
     __weak SearchField *weaksb = self.searchBox;
     weaksb.btnActionBlock = ^{
         if (!weaksb.searchTxtFld.text || [weaksb.searchTxtFld.text isEqualToString:@""])
@@ -82,6 +83,16 @@
      ];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showDetail"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        LongFormObject *longform = [self.longforms objectAtIndex:indexPath.row];
+        DetailViewController *destViewController = segue.destinationViewController;
+        destViewController.longform = longform;
+        destViewController.shortform =  self.searchBox.searchTxtFld.text;
+    }
+}
+
 #pragma mark - Text Field delegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -99,10 +110,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"defcell" forIndexPath:indexPath];
     //cell.label.text = self.longforms[indexPath.row][@"lf"];
-    cell.textLabel.text = self.longforms[indexPath.row][@"lf"];
+    cell.textLabel.text = [(LongFormObject *)[self.longforms objectAtIndex:indexPath.row] longform];
     return cell;
    // return
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+   // [self prepareForSegue: sender:nil];
+    [self performSegueWithIdentifier:@"showDetail" sender:nil];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

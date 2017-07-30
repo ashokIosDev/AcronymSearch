@@ -12,6 +12,7 @@
 
 - (id)initWithDictionary:(NSDictionary *)data;
 
+
 @property (nonatomic, strong) NSArray *results;
 //TODO: Probably should model the other fields in the response. For this app they are not used.
 @end
